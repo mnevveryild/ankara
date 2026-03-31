@@ -1,0 +1,215 @@
+:root {
+    --color1: #1f1813;   /* Koyu kahve-siyah (ana başlıklar, nav, vurgu, en koyu) */
+    --color2: #39493a;   /* Orta koyu yeşil (ikincil, border, buton hover, ikincil fon) */
+    --color3: #e78738;   /* Canlı turuncu (primary buton, başlık, vurgu) */
+    --color4: #eccd55;   /* Sarı (vurgulu bg, secondary button, hover, kart alt) */
+    --color5: #f6edab;   /* Açık pastel sarı (arka plan, kart bg, section bg) */
+}
+.color1 { color: var(--color1);}
+.color2 { color: var(--color2);}
+.color3 { color: var(--color3);}
+.color4 { color: var(--color4);}
+.color5 { color: var(--color5);}
+
+body {
+    background: var(--color5) !important;
+    color: var(--color1);
+}
+
+.navbar {
+    background-color: var(--color1);
+}
+.navbar-brand {
+    font-size: 2rem;
+    color: var(--color4);
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    transition: color 0.3s;
+}
+.navbar-brand:hover { color: var(--color3); }
+.nav-link {
+    margin: 0 10px;
+    color: var(--color4);
+    text-transform: uppercase;
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    transition: color 0.3s;
+}
+.nav-link:hover { color: var(--color3); }
+
+.search {
+    height: 40px;
+    width: 180px;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    border: 2px solid var(--color4);
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    color: var(--color2);
+    padding-left: 16px;
+    background: var(--color5);
+    font-size: 1rem;
+    box-shadow: none;
+    transition: border-color 0.3s;
+}
+.search:focus {
+    border-color: var(--color3);
+    background: var(--color4);
+}
+.btn0 {
+    height: 40px;
+    min-width: 60px;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background-color: var(--color3);
+    color: var(--color1);
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: none;
+    transition: background 0.3s, color 0.3s;
+}
+.btn0:hover, .btn0:focus {
+    background-color: var(--color2);
+    color: var(--color4);
+}
+
+@media (max-width: 768px) {
+    .search { width: 105px; font-size: 0.95rem; }
+    .btn0 { min-width: 44px; font-size: 0.9rem; }
+}
+
+.product {
+    background: var(--color4) !important;
+    color: var(--color1);
+}
+.about {
+    background: var(--color2);
+    color: var(--color4);
+}
+.contact {
+    background: var(--color5);
+    color: var(--color2);
+}
+
+.carousel-control-prev, .carousel-control-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px !important;
+    height: 55px !important;
+    opacity: 1;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: var(--color3);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(31,24,19,0.15);
+    width: 38px;
+    height: 38px;
+    background-size: 65% 65%;
+    opacity: 0.95;
+}
+
+@media (max-width: 991px) {
+    .carousel-control-prev, .carousel-control-next { width: 40px !important; height: 40px !important; }
+    .card-img-top { height:120px; }
+}
+
+.card {
+    background: var(--color5);
+    border-radius: 28px;
+    border: none;
+    box-shadow: 0 4px 18px -7px var(--color4);
+    min-height: 370px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.card:hover {
+    box-shadow: 0 8px 32px -7px var(--color2);
+}
+.card-img-top {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: block;
+    background: var(--color4);
+}
+
+.card-title {
+    font-family: "Abril Fatface", serif;
+    font-size: 1.38rem;
+    color: var(--color2);
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+    margin-top: 0.25rem;
+}
+.card-text {
+    color: var(--color1);
+    font-size: 1.07rem;
+    min-height: 48px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 18px 20px 18px;
+    background: transparent;
+}
+
+h2.text-center {
+    font-family: "Abril Fatface", serif;
+    color: var(--color3);
+    font-style: italic;
+    margin-bottom: 2rem !important;
+}
+
+.btn1{
+    height:45px;
+    width: 20%;
+    border-radius: 60px;
+    border: 2px solid var(--color3);
+    outline: none;
+    background-color: var(--color4);
+    color: var(--color1);
+    font-weight: 700;
+    transition: background-color 0.5s, color 0.5s;
+}
+.btn1:hover{
+    background-color: var(--color2);
+    color: var(--color4);
+}
+.img-luid, .img-fluid {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+.main{
+    background: url(./img/Ankara-arkaplan.jpg) no-repeat;
+    background-size: cover;
+    height: 90vh;
+    background-position: 50% 50%;
+    width: 100%;
+}
+.main h1{
+    font-size: 4rem;
+    font-family: "Abril Fatface", serif;
+    font-style: italic;
+    color: var(--color1);
+    font-weight: 700;
+}
+
+.contact h2 {
+    color: var(--color2) !important;
+}
