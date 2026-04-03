@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -18,170 +18,232 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg fixed-top shadow-sm">
-    <div class="container">
-        <a class="navbar-brand animate-glow" href="#anasayfa">
-            <i class="fas fa-city me-2"></i>ANKARA
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand" href="#anasayfa">
+            <i class="fas fa-city me-2"></i>Ankara'da Ne Var?
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav m-auto">
+            <ul class="navbar-nav m-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link active" href="#anasayfa">Anasayfa</a></li>
                 <li class="nav-item"><a class="nav-link" href="#gezilecekyerler">Gezilecek Yerler</a></li>
                 <li class="nav-item"><a class="nav-link" href="#yemekler">Yemekler</a></li>
                 <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
             </ul>
-            <div class="d-flex align-items-center gap-2">
-                <button id="pdf-indir" class="btn-glass"><i class="fas fa-file-pdf"></i> PDF</button>
-                <div class="search-box">
-                    <input type="text" placeholder="Keşfet...">
-                    <i class="fas fa-search"></i>
+            <form class="d-flex align-items-center gap-2">
+                <button type="button" id="pdf-indir" class="btn-pdf">
+                    <i class="fas fa-file-pdf me-1"></i> PDF İndir
+                </button>
+                <div class="search-group">
+                    <input class="form-control search-input" type="search" placeholder="Ankara'da ara...">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </nav>
 
-<section class="hero-section" id="anasayfa">
-    <div class="hero-overlay"></div>
-    <div class="container position-relative z-2 text-center">
+<section class="main-hero" id="anasayfa">
+    <div class="container text-center">
         <div class="fade-in">
-            <span class="badge-accent mb-3">BAŞKENT REHBERİ</span>
-            <h1 class="hero-title">Ankara'yı <span class="text-gradient">Keşfet</span></h1>
-            <p class="hero-text px-lg-5">Başkentin en güzel noktalarını, tarihi mekanlarını ve eşsiz lezzetlerini modern bir dokunuşla keşfedin.</p>
-            <div class="mt-5">
-                <a href="#yemekler" class="btn-primary-modern">Hemen Başla <i class="fas fa-arrow-right ms-2"></i></a>
-            </div>
+            <h1 class="display-title">Ankara'yı Keşfet!</h1>
+            <p class="lead-text">Başkentin en güzel noktalarını, tarihi mekanlarını ve eşsiz lezzetlerini keşfet.</p>
+            <a href="#yemekler" class="btn-cta">Hemen Başla</a>
         </div>
     </div>
 </section>
 
-<section class="py-5 bg-soft" id="yemekler">
+<section class="py-5" id="yemekler" style="background: var(--color5);">
     <div class="container">
-        <h2 class="section-title fade-in text-center">Ankara'da Ne Yenir?</h2>
-        <div class="row g-4 mt-4 fade-in">
-            <div class="col-lg-3 col-md-6">
-                <div class="card-modern h-100">
-                    <div class="card-img-wrap">
-                        <img src="img/aspava.jpg" alt="Aspava">
-                        <span class="card-badge">4.9/5</span>
+        <h2 class="section-title text-center fade-in">Ankara'da Ne Yenir?</h2>
+        <div id="yemeklerCarousel" class="carousel slide fade-in" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/aspava.jpg" alt="Aspava">
+                                <div class="card-body">
+                                    <h5>Aspava</h5>
+                                    <p>Meşhur SSK dürümü ve ikramlarıyla efsane.</p>
+                                    <div class="rating"><i class="fas fa-star"></i> 4.9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/beypazari-kurusu.jpg" alt="Beypazarı Kurusu">
+                                <div class="card-body">
+                                    <h5>Beypazarı Kurusu</h5>
+                                    <p>Çay yanında çıtır geleneksel bir lezzet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/gobit.png" alt="Gobit">
+                                <div class="card-body">
+                                    <h5>Gobit</h5>
+                                    <p>Kendine has sosuyla şehrin en eski döneri.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/cilbir.jpg" alt="Çılbır">
+                                <div class="card-body">
+                                    <h5>Çılbır</h5>
+                                    <p>Yoğurtlu ve tereyağlı nefis yumurta yemeği.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <h5>Aspava</h5>
-                        <p>Meşhur Ankara SSK dürümü ve zengin ikramlarıyla tam bir klasik.</p>
+                </div>
+                <div class="carousel-item">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/katmer.jpg" alt="Katmer">
+                                <div class="card-body">
+                                    <h5>Katmer</h5>
+                                    <p>Bol fıstıklı ve çıtır çıtır geleneksel tatlı.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/ankara_simidi.jpg" alt="Ankara Simidi">
+                                <div class="card-body">
+                                    <h5>Ankara Simidi</h5>
+                                    <p>Çıtır, bol susamlı ve meşhur Ankara simidi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/tandir.png" alt="Ankara Tava">
+                                <div class="card-body">
+                                    <h5>Ankara Tava</h5>
+                                    <p>Tereyağında pişmiş nefis et ziyafeti.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/ince-kagitta-balik.png" alt="İnce Kağıtta Balık">
+                                <div class="card-body">
+                                    <h5>İnce Kağıtta Balık</h5>
+                                    <p>Yalnızca Ankara'nın özel lokantalarında.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card-modern h-100">
-                    <div class="card-img-wrap"><img src="img/beypazari-kurusu.jpg" alt="Beypazarı"></div>
-                    <div class="card-content">
-                        <h5>Beypazarı Kurusu</h5>
-                        <p>Çay yanında çıtır çıtır geleneksel bir atıştırmalık.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card-modern h-100">
-                    <div class="card-img-wrap"><img src="img/gobit.png" alt="Gobit"></div>
-                    <div class="card-content">
-                        <h5>Gobit</h5>
-                        <p>Kendine has sosuyla şehrin en köklü döner deneyimi.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card-modern h-100">
-                    <div class="card-img-wrap"><img src="img/cilbir.jpg" alt="Çılbır"></div>
-                    <div class="card-content">
-                        <h5>Çılbır</h5>
-                        <p>Yoğurtlu ve tereyağlı nefis bir saray lezzeti.</p>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#yemeklerCarousel" data-bs-slide="prev">
+                <span class="carousel-btn"><i class="fas fa-chevron-left"></i></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#yemeklerCarousel" data-bs-slide="next">
+                <span class="carousel-btn"><i class="fas fa-chevron-right"></i></span>
+            </button>
         </div>
     </div>
 </section>
 
-<section class="py-5 bg-dark-modern text-white" id="gezilecekyerler">
+<section class="py-5" id="gezilecekyerler" style="background: var(--color2);">
     <div class="container">
-        <h2 class="section-title fade-in text-center text-accent">Gezilecek Yerler</h2>
-        <div class="row g-4 mt-4 fade-in">
-            <div class="col-md-4">
-                <div class="place-card">
-                    <img src="img/anitkabir.jpg" alt="Anıtkabir">
-                    <div class="place-overlay">
-                        <h4>Anıtkabir</h4>
-                        <p>Ata'mızın ebedi istirahatgahı.</p>
+        <h2 class="section-title text-center text-white fade-in">Gezilecek Yerler</h2>
+        <div id="yerlerCarousel" class="carousel slide fade-in" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row g-4 text-dark">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/anitkabir.jpg" alt="Anıtkabir">
+                                <div class="card-body"><h5>Anıtkabir</h5><p>Atatürk'ün ebedi istirahatgahı.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/hamamonu.jpg" alt="Hamamönü">
+                                <div class="card-body"><h5>Hamamönü</h5><p>Tarihi evler ve sanat sokakları.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/atakule.jpg" alt="Atakule">
+                                <div class="card-body"><h5>Atakule</h5><p>Şehrin panoramik simgesi.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/genclikparki.png" alt="Gençlik Parkı">
+                                <div class="card-body"><h5>Gençlik Parkı</h5><p>Eğlence ve huzur noktası.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row g-4 text-dark">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/ankara_kalesi.jpg" alt="Ankara Kalesi">
+                                <div class="card-body"><h5>Ankara Kalesi</h5><p>Şehrin en eski tarihi yapısı.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/kugulu-park.png" alt="Kuğulu Park">
+                                <div class="card-body"><h5>Kuğulu Park</h5><p>Kuğular eşliğinde bir mola.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/csoo.jpg" alt="CSO">
+                                <div class="card-body"><h5>CSO Ada Ankara</h5><p>Kültür ve sanatın kalbi.</p></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card-modern h-100">
+                                <img src="img/aoc.jpg" alt="AOÇ">
+                                <div class="card-body"><h5>A.O.Çiftliği</h5><p>Doğa ve çiftlik lezzetleri.</p></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="place-card">
-                    <img src="img/atakule.jpg" alt="Atakule">
-                    <div class="place-overlay">
-                        <h4>Atakule</h4>
-                        <p>Şehrin panoramik zirvesi.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="place-card">
-                    <img src="img/hamamonu.jpg" alt="Hamamönü">
-                    <div class="place-overlay">
-                        <h4>Hamamönü</h4>
-                        <p>Tarihin sanatla buluştuğu sokaklar.</p>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#yerlerCarousel" data-bs-slide="prev">
+                <span class="carousel-btn"><i class="fas fa-chevron-left"></i></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#yerlerCarousel" data-bs-slide="next">
+                <span class="carousel-btn"><i class="fas fa-chevron-right"></i></span>
+            </button>
         </div>
     </div>
 </section>
 
 <section class="py-5" id="iletisim">
     <div class="container">
-        <div class="contact-wrapper fade-in">
-            <div class="row g-0">
-                <div class="col-lg-5 contact-info-panel">
-                    <h3>Bize Ulaşın</h3>
-                    <p class="mb-5">Sorularınız veya önerileriniz için form üzerinden bizimle iletişime geçebilirsiniz.</p>
-                    <div class="d-flex align-items-center mb-4">
-                        <i class="fas fa-envelope-open-text fa-2x me-3"></i>
-                        <div>
-                            <div class="fw-bold">E-posta</div>
-                            <div>info@ankaranevar.com</div>
-                        </div>
-                    </div>
+        <div class="contact-box fade-in">
+            <h2 class="text-center mb-5">Bize Ulaşın</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6"><input type="text" class="form-control modern-input" placeholder="Ad Soyad"></div>
+                    <div class="col-md-6"><input type="email" class="form-control modern-input" placeholder="E-posta"></div>
+                    <div class="col-12"><textarea class="form-control modern-input" rows="4" placeholder="Mesajınız"></textarea></div>
+                    <div class="col-12 text-center"><button type="submit" class="btn-cta border-0">Gönder</button></div>
                 </div>
-                <div class="col-lg-7 p-4 p-md-5">
-                    <form id="contactForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Ad Soyad</label>
-                                <input type="text" class="form-control-modern" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">E-posta</label>
-                                <input type="email" class="form-control-modern" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Mesajınız</label>
-                                <textarea class="form-control-modern" rows="4"></textarea>
-                            </div>
-                            <div class="col-12 mt-4">
-                                <button type="submit" class="btn-primary-modern w-100">Mesajı Gönder</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </section>
 
-<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+<button id="backToTop" class="btn-top"><i class="fas fa-chevron-up"></i></button>
 
 <script src="script.js"></script>
 </body>
