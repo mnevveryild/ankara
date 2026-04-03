@@ -99,10 +99,10 @@ body {
 .hero-title {
     font-family: 'Abril Fatface', serif;
     font-size: clamp(3.5rem, 10vw, 6rem);
-    color: var(--color4);
+    color: var(--color1);
 }
 
-.hero-lead { color: #fff; opacity: 0.9; font-size: 1.3rem; margin-bottom: 2rem; }
+.hero-lead { color: #000000; opacity: 0.9; font-size: 1.3rem; margin-bottom: 2rem; }
 
 /* Sections & Cards */
 .section-padding { padding: 80px 0; }
@@ -181,16 +181,7 @@ body {
     width: 100%;
 }
 
-.btn-primary-modern {
-    background: var(--color4);
-    color: #fff;
-    padding: 15px 45px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: var(--transition);
-}
+
 
 .btn-primary-modern:hover { background: var(--color1); color: var(--color4); transform: translateY(-3px); }
 
