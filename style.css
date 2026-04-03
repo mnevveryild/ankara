@@ -196,7 +196,7 @@ h2.text-center {
     object-fit: contain;
 }
 .main{
-    background: url(./img/Ankara-arkaplan.jpg) no-repeat;
+    background: url(./img/background.png) no-repeat;
     background-size: cover;
     height: 90vh;
     background-position: 50% 50%;
